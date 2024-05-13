@@ -28,14 +28,18 @@ button{
     text-decoration: none;
     display: inline-flex;
     font-weight: bold;
+    margin: 10px 0 10px 0;
     padding: 10px 30px 10px 30px;
     border-radius: 50px;
     border: none;
     cursor: pointer;
 }
 
+h2{
+    margin: 5% 7% 1% 7%;
+}
 .description{
-    padding: 20px;
+    padding: 8%;
     text-align: center;
 }
 
@@ -119,7 +123,7 @@ header{
 
 /*Hero Image*/
 .home-hero-container{
-    background-image: url(../images/banner.png);
+    background-image: url(../images/banner.jpg);
     width: 100%;
     height: 350px;
     background-position: center;
@@ -129,11 +133,116 @@ header{
 }
 
 .hero-contents{
-    text-align: center;
+    text-align: left;
     position: absolute;
+    line-height: 1.5;
     width: 100%;
     height: auto;
-    margin-top: 150px;
+    margin-top: 80px;
+    padding-left: 50%;
+    padding-right: 50px;
+}
+
+@media (max-width: 500px) {
+    .hero-contents h1, .bottom-hero-contents h1 {
+        font-size: 22px;
+    }
+
+    .hero-contents p, .bottom-hero-contents p{
+        line-height: 1;
+        font-size: smaller;
+    }
+}
+
+/*Feature Images*/
+.feature{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+
+.feature-block1{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/feat1.jpg);
+}
+
+.feature-block2 {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/feat2.png);
+}
+
+.feature-desc{
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    color: white;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.532) 0%, rgba(0, 0, 0, 0) 100%);
+    bottom: 0;
+}
+
+.feature-desc p{
+    margin-left: 5%;
+}
+
+.feature-desc h3 {
+    margin-left: 5%;
+    font-size: x-large;
+    margin: 6px 0px 3px 5%;
+}
+
+@media (max-width: 900px){
+    .feature{
+        flex-direction: column;
+    }
+    .feature-block1{
+        height: 400px;
+    }
+    
+}
+
+.instructions{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+    padding: 0;
+}
+
+.step-block{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 900px) {
+    .step-block{
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.step-box{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-basis: 50%;
+    /* border: 2px solid black; */
+    margin: 1% 1% 1% 1%;
+}
+
+.step-box img{
+    width: 75%;
+    height: 250px;
 }
 
 /*Bottom Hero*/
@@ -145,14 +254,18 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    margin-top: 20px;
 }
 
 .bottom-hero-contents {
-    text-align: center;
+    text-align: right;
     position: absolute;
     width: 100%;
     height: auto;
     margin-top: 150px;
+    line-height: 1.5;
+    padding-right: 50%;
+    padding-left: 50px;
 }
 
 /*Footer*/
