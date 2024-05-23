@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+    <nav id="nav">
+        <h1 id="Name">PUERZA</h1>
+        <a style = "font-weight: 200;"><button id="Signup">Signup</button></a>
+        <a href="signup.html" > <button id="Login" style="position:relative">Login</button></a>
+    </nav>
+    <div id="seconddiv">
+        <h1 id="welcome" style="font-weight: 1500;"> Get Started</h1>
+        <form id="Loginform" method="post" action="login.php">
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Email" style="font-size:18pt;width:400px;" required><br><br>
+            <label for="Name"></label>
+            <input type="password" id="password" name="password" placeholder="Password" style="font-size:18pt;width:400px;" required><br><br>
+            <button type="submit" id="login1" style="line-height:5px;">Log In</button>
+        </form>
+        <h1 id="or">or</h1>
+        <h1 id="CreateAcc"><a href="signup.html" style="text-decoration: none;color:#EFD5D5;">Signup</a></h1>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
