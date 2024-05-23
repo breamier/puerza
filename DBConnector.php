@@ -58,7 +58,7 @@ $sql_strength = "CREATE TABLE IF NOT EXISTS strengthWorkout (
     exercise VARCHAR(40),
     wu_weight1 INT,
     wu_rep1 INT,
-    we_weight2 INT,
+    wu_weight2 INT,
     wu_rep2 INT,
     work_weight1 INT,
     work_rep1 INT,
