@@ -54,11 +54,25 @@
                     <td><input type="number" name="bsrpm"></td>
                 </tr>
                 <tr>
-                    <td>Lifting Percentage in %:</td>
-                    <td><input type="number" name="lp"></td>
+                    <td>
+                        Lifting Percentage:<br>
+                        <input type="radio" name="lp" value="75">75%<br>
+                        <input type="radio" name="lp" value="80">80%<br>
+                        <input type="radio" name="lp" value="85">85%<br>
+                        <input type="radio" name="lp" value="90">90%<br>
+                        <input type="radio" name="lp" value="95">95%<br>
+                        <input type="radio" name="lp" value="100">100%<br>
+                    </td>
                 </tr>
                 <tr>
-                    <!-- <td colspan="2">Which isolation exercises would you like to do?</td> -->
+                    <td colspan="2">Which isolation exercises would you like to do?</td>
+                    <td>
+                        <input type="radio" name="iso" value="1">Biceps and Triceps<br>
+                        <input type="radio" name="iso" value="2">Shoulders<br>
+                        <input type="radio" name="iso" value="3">Abs, Core, Side Obliques<br>
+                        <input type="radio" name="iso" value="4">Calves<br>
+                        <input type="radio" name="iso" value="5">Maybe Next Time<br>
+                    </td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Generate Workout" class="submit-button"></td>

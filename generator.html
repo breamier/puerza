@@ -11,61 +11,71 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!--Navigation Bar-->
-        <header>
-            <a class="logo" href="#"><img src="images/logo.png"><span>Puerza</span></a>
-        </header>
-        <form action="generateWorkout.php" method="get">
-            <table>
-                <tr>
-                    <td colspan="2">What would you like to do today?</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <h3 class="label">Strength Training</h3>
-                            <br>
-                            <input type="radio" name="type" value="">Deadlift Set<br>
-                            <input type="radio" name="type" value="">Backsquat Set<br>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <h3 class="label">Plyometrics</h3>
-                            <br>
-                            <div style="column-count: 2;">
-                                <input type="radio" name="type" value="">Deadlift Set<br>
-                                <input type="radio" name="type" value="">Backsquat Set<br>
+        <!--Side Bar-->
+        <div class="sidenav">
+            <img src="images/default.jpg" />
+            <a href="#"><button>Log Out</button></a>
+        </div>
+
+        <!--Main-->
+        <div class="main">
+            <header>
+                <a class="logo" href="#"><img src="images/logo.png"><span>Puerza</span></a>
+            </header>
+            <h1>Workout Generator</h1>
+            <form action="generateWorkout.php" method="get">
+                <table>
+                    <tr>
+                        <td colspan="2">What would you like to do today?</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="label">Strength Training</h3>
+                                <br>
                                 <input type="radio" name="type" value="">Deadlift Set<br>
                                 <input type="radio" name="type" value="">Backsquat Set<br>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">Enter your IRPM:</td>
-                </tr>
-                <tr>
-                    <td>Deadlift:</td>
-                    <td><input type="number" name="drpm"></td>
-                    <td>Chest Press:</td>
-                    <td><input type="number" name="crpm"></td>
-                </tr>
-                <tr>
-                    <td>Shoulder Press:</td>
-                    <td><input type="number" name="srpm"></td>
-                    <td>Backrow:</td>
-                    <td><input type="number" name="brpm"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">Would you like to do isolation exercises?</td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="Generate Workout" class="submit-button"></td>
-                </tr>
-            </table>
+                        </td>
+                        <td>
+                            <div>
+                                <h3 class="label">Plyometrics</h3>
+                                <br>
+                                <div style="column-count: 2;">
+                                    <input type="radio" name="type" value="">Deadlift Set<br>
+                                    <input type="radio" name="type" value="">Backsquat Set<br>
+                                    <input type="radio" name="type" value="">Deadlift Set<br>
+                                    <input type="radio" name="type" value="">Backsquat Set<br>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Enter your IRPM:</td>
+                    </tr>
+                    <tr>
+                        <td>Deadlift:</td>
+                        <td><input type="number" name="drpm"></td>
+                        <td>Chest Press:</td>
+                        <td><input type="number" name="crpm"></td>
+                    </tr>
+                    <tr>
+                        <td>Shoulder Press:</td>
+                        <td><input type="number" name="srpm"></td>
+                        <td>Backrow:</td>
+                        <td><input type="number" name="brpm"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Would you like to do isolation exercises?</td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Generate Workout" class="submit-button"></td>
+                    </tr>
+                </table>
             
-        </form>
+            </form>
+        </div>
+        
 
     </body>
 </html>

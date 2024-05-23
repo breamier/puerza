@@ -9,6 +9,7 @@ $srpm = $_GET["srpm"];
 $brpm = $_GET["brpm"];
 $bsrpm = $_GET["bsrpm"];
 $lp = $_GET["lp"];
+$iso = $_GET["iso"];
 
 echo $date.'<br>';
 echo $type.'<br>';
@@ -18,7 +19,13 @@ echo $srpm.'<br>';
 echo $brpm.'<br>';
 echo $bsrpm.'<br>';
 echo $lp.'<br>';
+echo 'IsoID'.$iso.'<br>';
 
+
+if ($iso != 5){
+    $iso_exercise = generateIso($conn, $iso);
+    echo 'Iso Workout'.$iso_exercise.'<br>';
+}
 // $sql = "INSERT INTO `workout` (`workout_id`, `workout_type`, `date`, `lp`, `drpm`, `crpm`, `srpm`, `brpm`)
 //     VALUES ('', '$type', '$date', '$lp', '$drpm', '$crpm', '$srpm', '$brpm',)";
 
@@ -55,12 +62,26 @@ if($result->num_rows > 0){
     }
 }
 
-if($type == 1){
-    generateDeadliftWorkout($conn, $drpm, $srpm, $crpm, $brpm, $lp, $set1_rep, $set2_rep, $set3_rep, $set4_rep);
-    echo "Deadlift Generated";
-} else if ($type == 2) {
-    generateBackSquatWorkout($conn, $bsrpm, $crpm, $brpm, $lp, $set1_rep, $set2_rep, $set3_rep, $set4_rep);
-    echo "Back Squat Generated";
+switch($type){
+    case 1: 
+        generateDeadliftWorkout($conn, $drpm, $srpm, $crpm, $brpm, $lp, $set1_rep, $set2_rep, $set3_rep, $set4_rep);
+        echo "<br>Deadlift Generated";
+        break;
+    case 2:
+        generateBackSquatWorkout($conn, $bsrpm, $crpm, $brpm, $lp, $set1_rep, $set2_rep, $set3_rep, $set4_rep);
+        echo "<br>Back Squat Generated";
+        break;
+    case 3:
+        generateBeginnerPlyo($conn);
+        echo "Beginner Plyo Generated";
+    case 4:
+        generateIntermediatePlyo($conn);
+        echo "Intermediate Plyo Generated";
+    case 5:
+        generateExtremePlyo($conn);
+        echo "Extreme Plyo Generated";
+    default:
+        break;
 }
 
 
@@ -143,6 +164,55 @@ function generateBackSquatWorkout($conn, $bsrpm, $crpm, $brpm, $lp, $set1_rep, $
     $bWorking2 = calculateWorking2($brpm, $lp);
 
     echo "<br>Back Row<br>". $bWarmUp1. "<br>". $bWarmUp2."<br>". $bWorking1. "<br>". $bWorking2;
+}
+
+function generateBeginnerPlyo($conn){
+    $sql = "SELECT plyo_name, sets, reps FROM plyoexercise WHERE plyo_set='1'";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        echo "Exercise  Sets    Reps<br>";
+        while($row = $result->fetch_assoc()){
+            echo $row["plyo_name"] . "    " . $row["sets"]. "   " . $row["reps"] . "<br>";
+        }
+    }
+    
+}
+
+function generateIntermediatePlyo($conn){
+    $sql = "SELECT plyo_name, sets, reps FROM plyoexercise WHERE plyo_set='2'";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        echo "Exercise  Sets    Reps<br>";
+        while($row = $result->fetch_assoc()){
+            echo $row["plyo_name"] . "    " . $row["sets"]. "   " . $row["reps"] . "<br>";
+        }
+    }
+    
+}
+
+function generateExtremePlyo($conn){
+    $sql = "SELECT plyo_name, sets, reps FROM plyoexercise WHERE plyo_set='3'";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        echo "Exercise  Sets    Reps<br>";
+        while($row = $result->fetch_assoc()){
+            echo $row["plyo_name"] . "    " . $row["sets"]. "   " . $row["reps"] . "<br>";
+        }
+    }
+    
+}
+
+function generateIso($conn, $iso){
+    $rand = rand(1, 4);
+
+    $sql = "SELECT idv_iso_name FROM isoExercise WHERE iso_id=$iso and idv_iso=$rand";
+    $result = ($conn->query($sql))->fetch_assoc();
+    $workout = $result["idv_iso_name"];
+
+    return $workout;
 }
 
 $conn->close();
