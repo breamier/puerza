@@ -11,22 +11,112 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!--Side Bar-->
-        <div class="sidenav">
-            <img src="images/default.jpg" />
-            <a href="#" id="logout"><button>Log Out</button></a>
-        </div>
-
         <!--Main-->
         <div class="main">
             <header>
                 <a class="logo" href="#"><img src="images/logo2.png"><span>Puerza</span></a>
             </header>
             <h1>Workout Generator</h1>
-            
-            <!-- <input type="submit" value="Generate Workout" class="submit-button"> -->
-        </div>
-        
 
+            <form action="generateWorkout.php" method="get">
+                <table>
+                    <tr>
+                        <td colspan="3" class="form-sec">When do you plan to workout?</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center;">
+                            <input type="date" id="date" name="date">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="form-sec">What type of workout will you have?</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="card">
+                                <h3 class="label">Strength Training</h3>
+                                <br>
+                                <input type="radio" name="type" value="1">Deadlift Set<br>
+                                <input type="radio" name="type" value="2">Backsquat Set<br>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card">
+                                <h3 class="label">Plyometrics</h3>
+                                <br>
+                                <div style="column-count: 2;">
+                                    <input type="radio" name="type" value="3">Beginner Set<br>
+                                    <input type="radio" name="type" value="4">Intermediate Set<br>
+                                    <input type="radio" name="type" value="5">Extreme Set<br>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="form-sec">Enter your One Rep Max for each exercise:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="drpm">
+                            <h4 class="identifier">Deadlift</h4>
+                        </td>
+                        <td>
+                            <input type="number" name="crpm">
+                            <h4 class="identifier">Chest Press</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="brpm">
+                            <h4 class="identifier">Backrow</h4>
+                        </td>
+                        <td>
+                            <input type="number" name="bsrpm">
+                            <h4 class="identifier">Back Squat</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="srpm">
+                            <h4 class="identifier">Shoulder Press</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="form-sec">Select your Lifting Percentage:</td>                        
+                    </tr>
+                    <tr class="lp-container">
+                        <td>
+                            <input type="radio" name="lp" value="75" class="lp">75%<br>   
+                            <input type="radio" name="lp" value="80" class="lp">80%<br>
+                            <input type="radio" name="lp" value="85" class="lp">85%
+                        </td>
+                        <td>
+                            <input type="radio" name="lp" value="90" class="lp">90%<br>
+                            <input type="radio" name="lp" value="95" class="lp">95%<br>
+                            <input type="radio" name="lp" value="100" class="lp">100%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="form-sec">Which isolation exercise would you like to do?</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="iso-container">
+                                <div style="display: inline-block; text-align: left;">
+                                    <input type="radio" name="iso" value="1" class="iso">Biceps and Triceps<br>
+                                    <input type="radio" name="iso" value="2" class="iso">Shoulders<br>
+                                    <input type="radio" name="iso" value="3" class="iso">Abs, Core, Side Obliques<br>
+                                    <input type="radio" name="iso" value="4" class="iso">Calves<br>
+                                    <input type="radio" name="iso" value="5" class="iso">Maybe Next Time<br>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Generate Workout" class="submit-button"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
 </html>
