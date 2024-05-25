@@ -1,21 +1,7 @@
 <?php
+include 'DBConnector.php';
 // Start the session
 session_start();
-
-// Database connection details
-$host = "localhost"; 
-$username = "root";
-$password = ""; 
-$database = "final";
-
-// Create a connection
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -36,11 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if (password_verify($password, $row["password"])) {
             
-            $_SESSION["user_id"] = $row["id"];
+            $_SESSION["user_id"] = $row["user_id"];
             $_SESSION["email"] = $row["email"];
+            $_SESSION["nickname"] = $row["nickname"];
 
-           
-            header("Location: welcome1.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             $error = "Invalid email or password";

@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.html");
+    exit();
+}
+
+$user_id = $_SESSION["user_id"];
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +36,7 @@
                     </tr>
                     <tr>
                         <td colspan="3" style="text-align: center;">
-                            <input type="date" id="date" name="date">
+                            <input type="date" id="date" name="date" required>
                         </td>
                     </tr>
                     <tr>
@@ -36,8 +47,8 @@
                             <div class="card">
                                 <h3 class="label">Strength Training</h3>
                                 <br>
-                                <input type="radio" name="type" value="1">Deadlift Set<br>
-                                <input type="radio" name="type" value="2">Backsquat Set<br>
+                                <input type="radio" name="type" value="1" required>Deadlift Set<br>
+                                <input type="radio" name="type" value="2" required>Backsquat Set<br>
                             </div>
                         </td>
                         <td>
@@ -45,9 +56,9 @@
                                 <h3 class="label">Plyometrics</h3>
                                 <br>
                                 <div style="column-count: 2;">
-                                    <input type="radio" name="type" value="3">Beginner Set<br>
-                                    <input type="radio" name="type" value="4">Intermediate Set<br>
-                                    <input type="radio" name="type" value="5">Extreme Set<br>
+                                    <input type="radio" name="type" value="3" required>Beginner Set<br>
+                                    <input type="radio" name="type" value="4" required>Intermediate Set<br>
+                                    <input type="radio" name="type" value="5" required>Extreme Set<br>
                                 </div>
                             </div>
                         </td>
@@ -57,27 +68,27 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="number" name="drpm">
+                            <input type="number" name="drpm" placeholder="lbs" required>
                             <h4 class="identifier">Deadlift</h4>
                         </td>
                         <td>
-                            <input type="number" name="crpm">
+                            <input type="number" name="crpm" placeholder="lbs" required>
                             <h4 class="identifier">Chest Press</h4>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="number" name="brpm">
+                            <input type="number" name="brpm" placeholder="lbs" required>
                             <h4 class="identifier">Backrow</h4>
                         </td>
                         <td>
-                            <input type="number" name="bsrpm">
+                            <input type="number" name="bsrpm" placeholder="lbs" required>
                             <h4 class="identifier">Back Squat</h4>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="number" name="srpm">
+                            <input type="number" name="srpm" placeholder="lbs" required>
                             <h4 class="identifier">Shoulder Press</h4>
                         </td>
                     </tr>
@@ -86,14 +97,14 @@
                     </tr>
                     <tr class="lp-container">
                         <td>
-                            <input type="radio" name="lp" value="75" class="lp">75%<br>   
-                            <input type="radio" name="lp" value="80" class="lp">80%<br>
-                            <input type="radio" name="lp" value="85" class="lp">85%
+                            <input type="radio" name="lp" value="75" class="lp" required>75%<br>   
+                            <input type="radio" name="lp" value="80" class="lp" required>80%<br>
+                            <input type="radio" name="lp" value="85" class="lp" required>85%
                         </td>
                         <td>
-                            <input type="radio" name="lp" value="90" class="lp">90%<br>
-                            <input type="radio" name="lp" value="95" class="lp">95%<br>
-                            <input type="radio" name="lp" value="100" class="lp">100%
+                            <input type="radio" name="lp" value="90" class="lp" required>90%<br>
+                            <input type="radio" name="lp" value="95" class="lp" required>95%<br>
+                            <input type="radio" name="lp" value="100" class="lp" required>100%
                         </td>
                     </tr>
                     <tr>
@@ -103,11 +114,11 @@
                         <td colspan="3">
                             <div class="iso-container">
                                 <div style="display: inline-block; text-align: left;">
-                                    <input type="radio" name="iso" value="1" class="iso">Biceps and Triceps<br>
-                                    <input type="radio" name="iso" value="2" class="iso">Shoulders<br>
-                                    <input type="radio" name="iso" value="3" class="iso">Abs, Core, Side Obliques<br>
-                                    <input type="radio" name="iso" value="4" class="iso">Calves<br>
-                                    <input type="radio" name="iso" value="5" class="iso">Maybe Next Time<br>
+                                    <input type="radio" name="iso" value="1" class="iso" required>Biceps and Triceps<br>
+                                    <input type="radio" name="iso" value="2" class="iso" required>Shoulders<br>
+                                    <input type="radio" name="iso" value="3" class="iso" required>Abs, Core, Side Obliques<br>
+                                    <input type="radio" name="iso" value="4" class="iso" required>Calves<br>
+                                    <input type="radio" name="iso" value="5" class="iso" required>Maybe Next Time<br>
                                 </div>
                             </div>
                         </td>

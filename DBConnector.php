@@ -14,7 +14,7 @@ if($conn->connect_error){
 $sql = "CREATE DATABASE IF NOT EXISTS puerzaDB";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully";
+    echo "Database created successfully\n";
 } else {
     echo "Error creating database: " . $conn->error;
 }
@@ -33,7 +33,7 @@ if ($conn->connect_error) {
     echo "\nConnected to Puerza";
 }
 
-$sql_users = "CREATE TABLE IF NOT EXISTS workout (
+$sql_workout = "CREATE TABLE IF NOT EXISTS workout (
     workout_id INT AUTO_INCREMENT PRIMARY KEY,
     workout_type INT,
     date DATE,
@@ -46,8 +46,41 @@ $sql_users = "CREATE TABLE IF NOT EXISTS workout (
     idv_iso INT
 )";
 
+if ($conn->query($sql_workout) === TRUE) {
+    echo "Workout table created successfully\n";
+} else {
+    echo "Error creating course table: " . $conn->error;
+}
+
+// Users Table
+$sql_users = "CREATE TABLE IF NOT EXISTS users(
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(40) NOT NULL,
+    password VARCHAR(75) NOT NULL,
+    first_name VARCHAR(40) NOT NULL,
+    last_name VARCHAR(40) NOT NULL, 
+    nickname VARCHAR(20) NOT NULL,
+    birthdate DATE NOT NULL,
+    weight INT,
+    height INT,
+    picture VARCHAR(40)
+)";
+
 if ($conn->query($sql_users) === TRUE) {
-    echo "Workout table created successfully";
+    echo "Users table created successfully\n";
+} else {
+    echo "Error creating course table: " . $conn->error;
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS user_workout(
+    user_id INT NOT NULL,
+    workout_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (workout_id) REFERENCES workout(workout_id)
+)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Links table created successfully\n";
 } else {
     echo "Error creating course table: " . $conn->error;
 }
@@ -87,45 +120,45 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating course table: " . $conn->error;
 }
 
-// $sql_plyoValues = "INSERT INTO `plyoExercise` (`plyo_set`, `plyo_name`, `sets`, `reps`)
-//     VALUES
-//     (1, 'Jumping Jacks', 1, 50),
-//     (1, 'Jump Squat', 3, 10),
-//     (1, 'Forward Jump', 3, 5),
-//     (1, 'Reverse Jump', 3, 5),
-//     (1, 'Decline Push', 3, 5),
-//     (1, 'Side Jump', 3, 5),
-//     (1, 'Calf Jump', 1, 50),
-//     (1, 'Power Push Up', 3, 5),
-//     (1, 'Forward Squat to Jump Squat', 2, 5),
-//     (1, 'Jump Squat to Reverse Squat', 2, 5),
-//     (1, 'Burpees', 3, 6),
-//     (1, 'Squat Ball', 3, 10),
-//     (2, 'Jumping Jacks', 1, 80),
-//     (2, 'Jump Squat', 3, 12),
-//     (2, 'Forward Jump', 3, 8),
-//     (2, 'Reverse Jump', 3, 8),
-//     (2, 'Decline Push', 3, 8),
-//     (2, 'Side Jump', 3, 8),
-//     (2, 'Calf Jump', 1, 70),
-//     (2, 'Power Push Up', 3, 10),
-//     (2, 'Forward Squat to Jump Squat', 2, 8),
-//     (2, 'Jump Squat to Reverse Squat', 2, 8),
-//     (2, 'Burpees', 3, 10),
-//     (2, 'Squat Ball', 3, 12),
-//     (3, 'Jumping Jacks', 1, 100),
-//     (3, 'Jump Squat', 3, 15),
-//     (3, 'Forward Jump', 3, 10),
-//     (3, 'Reverse Jump', 3, 10),
-//     (3, 'Decline Push', 3, 12),
-//     (3, 'Side Jump', 3, 10),
-//     (3, 'Calf Jump', 1, 90),
-//     (3, 'Power Push Up', 3, 15),
-//     (3, 'Forward Squat to Jump Squat', 2, 12),
-//     (3, 'Jump Squat to Reverse Squat', 2, 12),
-//     (3, 'Burpees', 3, 15),
-//     (3, 'Squat Ball', 3, 15)
-//     ";
+$sql_plyoValues = "INSERT INTO `plyoExercise` (`plyo_set`, `plyo_name`, `sets`, `reps`)
+    VALUES
+    (3, 'Jumping Jacks', 1, 50),
+    (3, 'Jump Squat', 3, 10),
+    (3, 'Forward Jump', 3, 5),
+    (3, 'Reverse Jump', 3, 5),
+    (3, 'Decline Push', 3, 5),
+    (3, 'Side Jump', 3, 5),
+    (3, 'Calf Jump', 1, 50),
+    (3, 'Power Push Up', 3, 5),
+    (3, 'Forward Squat to Jump Squat', 2, 5),
+    (3, 'Jump Squat to Reverse Squat', 2, 5),
+    (3, 'Burpees', 3, 6),
+    (3, 'Squat Ball', 3, 10),
+    (4, 'Jumping Jacks', 1, 80),
+    (4, 'Jump Squat', 3, 12),
+    (4, 'Forward Jump', 3, 8),
+    (4, 'Reverse Jump', 3, 8),
+    (4, 'Decline Push', 3, 8),
+    (4, 'Side Jump', 3, 8),
+    (4, 'Calf Jump', 1, 70),
+    (4, 'Power Push Up', 3, 10),
+    (4, 'Forward Squat to Jump Squat', 2, 8),
+    (4, 'Jump Squat to Reverse Squat', 2, 8),
+    (4, 'Burpees', 3, 10),
+    (4, 'Squat Ball', 3, 12),
+    (5, 'Jumping Jacks', 1, 100),
+    (5, 'Jump Squat', 3, 15),
+    (5, 'Forward Jump', 3, 10),
+    (5, 'Reverse Jump', 3, 10),
+    (5, 'Decline Push', 3, 12),
+    (5, 'Side Jump', 3, 10),
+    (5, 'Calf Jump', 1, 90),
+    (5, 'Power Push Up', 3, 15),
+    (5, 'Forward Squat to Jump Squat', 2, 12),
+    (5, 'Jump Squat to Reverse Squat', 2, 12),
+    (5, 'Burpees', 3, 15),
+    (5, 'Squat Ball', 3, 15)
+    ";
 
 // if ($conn->query($sql_plyoValues) === TRUE) {
 //     echo "<br>Exercises for Plyo added successfully";

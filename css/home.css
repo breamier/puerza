@@ -9,6 +9,7 @@
     --background: #3F0259;
     --text-color: white;
     --button: #0D0D3A;
+    --bg-color: #100126;
 }
 
 a{
@@ -17,7 +18,7 @@ a{
 }
 
 body{
-    background-color: var(--background);
+    background-color: var(--bg-color);
     color: var(--text-color);
     padding-top: 70px;
 }

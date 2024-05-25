@@ -1,24 +1,11 @@
 <?php
+include 'DBConnector.php';
 session_start();
 
 // Enable error reporting for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-// Database connection parameters
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbname = "final"; 
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -38,10 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    
-    $stmt = $conn->prepare("INSERT INTO users (email, password, first_name, last_name, nickname, birthday) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $email, $hashed_password, $fname, $lname, $nickname, $birthday);
 
+    $stmt = $conn->prepare("INSERT INTO users (email, password, first_name, last_name, nickname, birthdate, weight, height, picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $email, $hashed_password, $fname, $lname, $nickname, $birthday, $weight, $height, $picture);
+
+    $weight = NULL;
+    $height = NULL;
+    $picture = 'default.jpg';
    
     if ($stmt->execute()) {
         
