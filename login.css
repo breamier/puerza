@@ -232,9 +232,6 @@
       color: white;
       border: none;
       font-size: 2vw;
-      
-      
-      
     }
     
   
@@ -243,7 +240,7 @@
     }
   
     #seconddiv {
-      background-image: url(123.png);
+      background-image: url(images/loginbg.png);
       background-size: 100% 100%;
       background-repeat: no-repeat;
       background-position: relative;
@@ -308,9 +305,7 @@
       position: absolute;
       top: 160px;
       left: 125px;
-      font-size: 24px;
-      flex-wrap: ;
-      
+      font-size: 24px;      
     }
   
     #CreateAcc {

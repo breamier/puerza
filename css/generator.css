@@ -139,10 +139,27 @@ input[type="date"] {
     box-sizing: border-box;
 }
 
+input[type="number"] {
+    text-align: right;
+}
+
 table{
     width: 90%;
     margin-left:auto;
     margin-right: auto;
+}
+
+.sidenav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--navbar);
+    overflow-x: hidden;
+    padding-top: 20px;
+    text-align: center;
 }
 
 td{
@@ -157,4 +174,8 @@ td{
     background-color: var(--button);
     color: var(--background);
     border: none;
+}
+
+div .card{
+    width: 300px;
 }

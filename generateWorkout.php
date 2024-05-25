@@ -1,6 +1,15 @@
 <?php
 include 'DBConnector.php';
 
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.html");
+    exit();
+}
+
+$user_id = $_SESSION["user_id"];
+
 $date = $_GET["date"];
 $type = $_GET["type"];
 $drpm = $_GET["drpm"];
@@ -30,6 +39,13 @@ if($conn->query($sql) === TRUE){
 
 // Add to User-Workout Table UserID and WorkoutID
 $workout_id = $conn->insert_id;
+
+$sql_link = "INSERT INTO `user_workout`(`user_id`, `workout_id`)
+    VALUES('$user_id', '$workout_id')";
+
+if($conn->query($sql_link) === TRUE){
+    echo "Linked Successfully";
+}
 
 // Repetitions Based on Lifting Percentage
 $sql = "SELECT set_num, reps FROM strengthRepetitions WHERE lp='$lp'";
