@@ -7,21 +7,19 @@ $conn = new mysqli($servername, $username, $password);
 
 if($conn->connect_error){
     die("Connection failes: ".$conn->connect_error);
-} else {
-    echo "Connected successfully!";
 }
 
-$sql = "CREATE DATABASE IF NOT EXISTS puerzaDB";
+$sql = "CREATE DATABASE IF NOT EXISTS puerzadb";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully\n";
+    // echo "Database created successfully\n";
 } else {
     echo "Error creating database: " . $conn->error;
 }
 
 $conn->close();
 
-$dbname = "puerzaDB";
+$dbname = "puerzadb";
 
 //Reconnect
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,11 +27,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} else {
-    echo "\nConnected to Puerza";
 }
 
-$sql_workout = "CREATE TABLE IF NOT EXISTS workout (
+$sql = "CREATE TABLE IF NOT EXISTS workout (
     workout_id INT AUTO_INCREMENT PRIMARY KEY,
     workout_type INT,
     date DATE,
@@ -43,17 +39,14 @@ $sql_workout = "CREATE TABLE IF NOT EXISTS workout (
     srpm DOUBLE(10,2),
     brpm DOUBLE(10,2),
     iso_id INT,
-    idv_iso INT
+    idv_iso INT,
+    status BOOLEAN
 )";
 
-if ($conn->query($sql_workout) === TRUE) {
-    echo "Workout table created successfully\n";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
 // Users Table
-$sql_users = "CREATE TABLE IF NOT EXISTS users(
+$sql = "CREATE TABLE IF NOT EXISTS users(
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(40) NOT NULL,
     password VARCHAR(75) NOT NULL,
@@ -66,11 +59,7 @@ $sql_users = "CREATE TABLE IF NOT EXISTS users(
     picture VARCHAR(40)
 )";
 
-if ($conn->query($sql_users) === TRUE) {
-    echo "Users table created successfully\n";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS user_workout(
     user_id INT NOT NULL,
@@ -79,14 +68,10 @@ $sql = "CREATE TABLE IF NOT EXISTS user_workout(
     FOREIGN KEY (workout_id) REFERENCES workout(workout_id)
 )";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Links table created successfully\n";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
-// Stores Strength Training workouts
-$sql_strength = "CREATE TABLE IF NOT EXISTS strengthWorkout (
+
+$sql = "CREATE TABLE IF NOT EXISTS strengthWorkout (
     workout_id INT,
     exercise VARCHAR(40),
     wu_weight1 INT,
@@ -100,13 +85,9 @@ $sql_strength = "CREATE TABLE IF NOT EXISTS strengthWorkout (
     FOREIGN KEY (workout_id) REFERENCES workout(workout_id)
 )";
 
-if ($conn->query($sql_strength) === TRUE) {
-    echo "Strength table created successfully";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
-// Table for individual plyo exercises
+// Plyometrics Exercises
 $sql = "CREATE TABLE IF NOT EXISTS plyoExercise(
     plyo_set INT NOT NULL,
     plyo_name VARCHAR(40),
@@ -114,11 +95,7 @@ $sql = "CREATE TABLE IF NOT EXISTS plyoExercise(
     reps INT NOT NULL
 )";
 
-if ($conn->query($sql) === TRUE) {
-    echo "<br>Plyo table for exercise created successfully";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
 $sql_plyoValues = "INSERT INTO `plyoExercise` (`plyo_set`, `plyo_name`, `sets`, `reps`)
     VALUES
@@ -160,88 +137,83 @@ $sql_plyoValues = "INSERT INTO `plyoExercise` (`plyo_set`, `plyo_name`, `sets`, 
     (5, 'Squat Ball', 3, 15)
     ";
 
-// if ($conn->query($sql_plyoValues) === TRUE) {
-//     echo "<br>Exercises for Plyo added successfully";
-// } else {
-//     echo "Error creating course table: " . $conn->error;
-// }
+    $query = "SELECT count(*) as count FROM plyoExercise";
+    $result = $conn->query($query);
+    $row = $result->fetch_assoc();
 
-$sql_strengthReps = "CREATE TABLE IF NOT EXISTS strengthRepetitions(
+    if($row['count'] == 0){
+        $conn->query($sql_plyoValues);
+    }
+
+$sql = "CREATE TABLE IF NOT EXISTS strengthRepetitions(
     set_num INT NOT NULL,
     lp INT NOT NULL,
     reps INT NOT NULL
 )";
 
-if ($conn->query($sql_strengthReps) === TRUE) {
-    echo "\nValues added successfully";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
-// $sql_strengthRepsValues = "INSERT INTO `strengthRepetitions` (`set_num`, `lp`, `reps`)
-//     VALUES
-//     (1, 75, 15),(1, 80, 15),(1, 85, 13),(1, 90, 12),(1, 95, 10),(1, 100, 10),
-//     (2, 75, 15),(2, 80, 13),(2, 85, 12),(2, 90, 10),(2, 95, 10),(2, 100, 8),
-//     (3, 75, 13),(3, 80, 12),(3, 85, 10),(3, 90, 8),(3, 95, 8),(3, 100, 6),
-//     (4, 75, 12),(4, 80, 12),(4, 85, 10),(4, 90, 8),(4, 95, 6),(4, 100, 5)
-//     ";
+$sql_strengthRepsValues = "INSERT INTO `strengthRepetitions` (`set_num`, `lp`, `reps`)
+    VALUES
+    (1, 75, 15),(1, 80, 15),(1, 85, 13),(1, 90, 12),(1, 95, 10),(1, 100, 10),
+    (2, 75, 15),(2, 80, 13),(2, 85, 12),(2, 90, 10),(2, 95, 10),(2, 100, 8),
+    (3, 75, 13),(3, 80, 12),(3, 85, 10),(3, 90, 8),(3, 95, 8),(3, 100, 6),
+    (4, 75, 12),(4, 80, 12),(4, 85, 10),(4, 90, 8),(4, 95, 6),(4, 100, 5)
+    ";
 
 
-// if ($conn->query($sql_strengthRepsValues) === TRUE) {
-//     echo "\nValues added successfully";
-// } else {
-//     echo "Error creating course table: " . $conn->error;
-// }
+    $query = "SELECT count(*) as count FROM strengthRepetitions";
+    $result1 = $conn->query($query);
+    $row1 = $result1->fetch_assoc();
 
-$sql_iso_table = "CREATE TABLE IF NOT EXISTS isolation(
+    if($row1['count'] == 0){
+        $conn->query($sql_strengthRepsValues);
+    }
+
+$sql = "CREATE TABLE IF NOT EXISTS isolation(
     iso_id INT PRIMARY KEY,
     iso_part VARCHAR(40)
 )";
 
-if ($conn->query($sql_iso_table) === TRUE) {
-    echo "\n Isolation Table added successfully";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
-$sql_iso_ex = "CREATE TABLE IF NOT EXISTS isoExercise(
+$sql = "CREATE TABLE IF NOT EXISTS isoExercise(
         iso_id INT,
         idv_iso INT,
         idv_iso_name VARCHAR(40),
         FOREIGN KEY(iso_id) REFERENCES isolation(iso_id)
 )";
 
-if ($conn->query($sql_iso_ex) === TRUE) {
-    echo "\nIso Exercise Table added successfully";
-} else {
-    echo "Error creating course table: " . $conn->error;
-}
+$conn->query($sql);
 
-// $sql_insert_iso = "INSERT INTO `isolation`(`iso_id`, `iso_part`)
-//     VALUES
-//     (1, 'Biceps and Triceps'), (2, 'Shoulders'), (3, 'Abs, Core and Side Obliques'), (4, 'Calves'), (5, 'None')
-// ";
+$sql_insert_iso = "INSERT INTO `isolation`(`iso_id`, `iso_part`)
+    VALUES
+    (1, 'Biceps and Triceps'), (2, 'Shoulders'), (3, 'Abs, Core and Side Obliques'), (4, 'Calves'), (5, 'None')
+";
 
-// if ($conn->query($sql_insert_iso) === TRUE) {
-//     echo "\nIso Exercise Table added successfully";
-// } else {
-//     echo "Error creating course table: " . $conn->error;
-// }
+    $query = "SELECT count(*) as count FROM isolation";
+    $result2 = $conn->query($query);
+    $row2 = $result2->fetch_assoc();
 
+    if($row2['count'] == 0){
+        $conn->query($sql_insert_iso);
+    }
 
-// $sql_insert_iso_ex = "INSERT INTO `isoExercise`(`iso_id`, `idv_iso`, `idv_iso_name`)
-//     VALUES
-//     (1, 1, 'Bicep Curl and Tricep Push Down'), (1, 2, 'Hammer Curl and Close Grip Tricep Press'), (1, 3, 'Tricep Dip'), (1, 4, 'Tricep Kickback'),
-//     (2, 1, 'Lateral Raise'), (2, 2, 'Front Raise'), (2, 3, 'Upright Row'), (2, 4, 'Side Deltoid Raise'),
-//     (3, 1, 'Crunches and Plank'), (3, 2, 'Russian Twist'), (3, 3, 'Leg Raises'), (3, 4, 'Decline and Side Decline Crunches'),
-//     (4, 1, 'Calf Raises'), (4, 2, 'Seated Calf Raise'), (4, 3, 'Box Jumps'), (4, 4, 'Jump Rope')
-//     ";
+$sql_insert_iso_ex = "INSERT INTO `isoExercise`(`iso_id`, `idv_iso`, `idv_iso_name`)
+    VALUES
+    (1, 1, 'Bicep Curl and Tricep Push Down'), (1, 2, 'Hammer Curl and Close Grip Tricep Press'), (1, 3, 'Tricep Dip'), (1, 4, 'Tricep Kickback'),
+    (2, 1, 'Lateral Raise'), (2, 2, 'Front Raise'), (2, 3, 'Upright Row'), (2, 4, 'Side Deltoid Raise'),
+    (3, 1, 'Crunches and Plank'), (3, 2, 'Russian Twist'), (3, 3, 'Leg Raises'), (3, 4, 'Decline and Side Decline Crunches'),
+    (4, 1, 'Calf Raises'), (4, 2, 'Seated Calf Raise'), (4, 3, 'Box Jumps'), (4, 4, 'Jump Rope')
+    ";
 
-// if ($conn->query($sql_insert_iso_ex) === TRUE){
-//     echo "\nValues for Isolation added successfully";
-// } else {
-//     echo "Error creating course table: " . $conn->error;
-// }
+    $query = "SELECT count(*) as count FROM isoExercise";
+    $result3 = $conn->query($query);
+    $row3 = $result3->fetch_assoc();
+
+    if($row3['count'] == 0){
+        $conn->query($sql_insert_iso_ex);
+    }
 
 
 ?>

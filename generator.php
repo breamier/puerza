@@ -25,7 +25,7 @@ $user_id = $_SESSION["user_id"];
         <!--Main-->
         <div class="main">
             <header>
-                <a class="logo" href="#"><img src="images/logo2.png"><span>Puerza</span></a>
+                <a class="logo" href="dashboard.php"><img src="images/logo2.png"><span>Puerza</span></a>
             </header>
             <h1>Workout Generator</h1>
 

@@ -9,6 +9,13 @@ if (!isset($_SESSION["user_id"])) {
 
 $user_id = $_SESSION["user_id"];
 $nickname = $_SESSION["nickname"];
+
+if(isset($_GET['date'])) {
+    $current_date = $_GET['date'];
+} else {
+    $current_date = date("Y-m-d");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +24,7 @@ $nickname = $_SESSION["nickname"];
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Puerza | Profile</title>
-        <link rel="stylesheet" type="text/css" href="css/editProfile.css">
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
         <!--Import Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,12 +44,25 @@ $nickname = $_SESSION["nickname"];
             <header>
                 <a class="logo" href="#"><img src="images/logo2.png"><span>Puerza</span></a>
             </header>
-            <h1>Dashboard</h1>
-            
-            <form action="generator.php" method="get">
+
+            <form action="generator.php" method="get" style="float: right; height: 0px;">
                 <input type="submit" value="Generate Workout" class="submit-button">
             </form>
+            <br>
 
+            <h1>Dashboard</h1><br>
+
+                <form action="dashboard.php" method="get" style="float: right;">
+                        <input type="hidden" name="date" value="<?php echo date('Y-m-d', strtotime($current_date . ' +1 day')); ?>">
+                        <input type="submit" value=">" class="submit-button">
+                </form>
+                <form action="dashboard.php" method="get" style="float: left;">
+                    <input type="hidden" name="date" value="<?php echo date('Y-m-d', strtotime($current_date . ' -1 day')); ?>">
+                    <input type="submit" value="<" class="submit-button">
+                </form>
+                <br>
+
+            
             <?php
             include 'display.php';
             ?>
