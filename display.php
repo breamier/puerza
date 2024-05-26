@@ -8,12 +8,21 @@ if (!isset($_SESSION["user_id"])) {
 }
 
 $user_id = $_SESSION["user_id"];
-// $current_date = date("Y-m-d");
-$current_date = '2024-05-26';
+$month = date('F', strtotime($current_date));
+$day = date('d', strtotime($current_date));
+$year = date('Y', strtotime($current_date)); 
 
-
-echo $current_date;
-$sql = "SELECT w.workout_id, w.workout_type
+echo '<div class="container">
+    <div class="top-container">
+        <div class="display-date">
+            <div class="day">'.$day.'</div>
+            <div class="month">'.$month.'</div>
+        </div class="display-quote">
+            <p class="quote">It \'s Your Workout: Your Time. Your Body. <br>Own It!</p>
+        <div>
+        </div>
+    </div></div>';
+$sql = "SELECT w.workout_id, w.workout_type, w.iso_id, w.idv_iso, w.status
         FROM workout as w
         JOIN user_workout as uw ON uw.workout_id = w.workout_id
         WHERE uw.user_id = ? AND w.date = ?";
@@ -27,8 +36,28 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $type = $row['workout_type'];
         $workout_id = $row['workout_id'];
-        echo '<div class = "card">';
+        $iso_id = $row['iso_id'];
+        $idv_iso = $row['idv_iso'];
+        $status = $row['status'];
+
+        
+
+        $sql_iso = "SELECT idv_iso_name FROM isoexercise WHERE iso_id = $iso_id AND idv_iso = $idv_iso";
+        $isolation = $conn->query($sql_iso)->fetch_assoc();
+        $sql_iso_part = "SELECT iso_part FROM isolation WHERE iso_id = $iso_id";
+        $isolation_part = $conn->query($sql_iso_part)->fetch_assoc();
+   
+        echo '<div>';
         if($type == 1){
+            echo '<div class = "card">';
+            echo '<form method="post" action="finished.php" class="finished">';
+            echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="status" value="' . $status . '">';
+            if ($status == 0) {
+                    echo '<button type="submit" name="mark_as_done" style="background-color: green;">Mark as Done</button>';
+                } else {
+                    echo '<button type="submit" name="finished" style="background-color: grey;">Finished</button>';
+                }
+            echo '</form>';
             echo '<table class="display-strength">
                 <caption>Deadlift Set</caption>
                 <tr>
@@ -49,12 +78,21 @@ if ($result->num_rows > 0) {
                     </tr>';
             }
             echo '</table>';
+            echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
             echo '<form method="post" action="delete_workout.php">';
             echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="type" value="' . $type . '">';
             echo '<button type="submit" name="delete_workout" style="background-color: red;">Delete Workout</button>';
             echo '</form></div>';
         } elseif($type == 2){
             echo '<div class = "card">';
+            echo '<form method="post" action="finished.php" class="finished">';
+            echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="status" value="' . $status . '">';
+            if ($status == 0) {
+                    echo '<button type="submit" name="mark_as_done" style="background-color: green;">Mark as Done</button>';
+                } else {
+                    echo '<button type="submit" name="finished" style="background-color: grey;">Finished</button>';
+                }
+            echo '</form>';
             echo '<table class="display-strength">
                 <caption>Backsquat Set</caption>
                 <tr>
@@ -75,12 +113,21 @@ if ($result->num_rows > 0) {
                     </tr>';
             }
             echo '</table>';
+            echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
             echo '<form method="post" action="delete_workout.php">';
             echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="type" value="' . $type . '">';
             echo '<button type="submit" name="delete_workout" style="background-color: red;">Delete Workout</button>';
             echo '</form></div>';
         } elseif($type == 3 || $type == 4 || $type == 5){
             echo '<div class = "card">';
+            echo '<form method="post" action="finished.php" class="finished">';
+            echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="status" value="' . $status . '">';
+            if ($status == 0) {
+                    echo '<button type="submit" name="mark_as_done" style="background-color: green;">Mark as Done</button>';
+                } else {
+                    echo '<button type="submit" name="finished" style="background-color: grey;">Finished</button>';
+                }
+            echo '</form>';
             echo '<table class="display-plyo">
                 <caption>Plyometrics</caption>
                 <tr>
@@ -94,6 +141,7 @@ if ($result->num_rows > 0) {
                 </tr>';
             }
             echo '</table>';
+            echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
             echo '<form method="post" action="delete_workout.php">';
             echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="type" value="' . $type . '">';
             echo '<button type="submit" name="delete_workout" style="background-color: red;">Delete Workout</button>';
@@ -102,7 +150,7 @@ if ($result->num_rows > 0) {
         
     }
 } else {
-    echo "0 results";
+    echo '<div class="card">No scheduled workouts for this day</div>';
 }
 
 
