@@ -7,6 +7,7 @@
 
 :root {
     --background: #3F0259;
+    --violet: #6f1297;
     --text-color: white;
     --button: #00FEED;
     --navbar: #100126;
@@ -94,6 +95,8 @@ table {
     border: solid white 3px;
 }
 
+
+/* Side Nav */
 .sidenav{
     height: 100%;
     width: 300px;
@@ -114,6 +117,19 @@ table {
     font-size: 25px;
     color: #818181;
     display: block;
+}
+
+#name{
+    color: var(--button);
+}
+.sidenav-prof{
+    padding: 5px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.sidenav td{
+   border-bottom: 1px solid violet;
 }
 
 .container{
@@ -167,11 +183,11 @@ table {
 
 button{
     background-color: var(--button);
-    color: var(--text-color);
+    color: white;
     text-decoration: none;
     display: inline-flex;
     font-weight: bold;
-    margin: 10px 0 10px 0;
+    margin: 5px 0 10px 0;
     padding: 10px 30px 10px 30px;
     border-radius: 50px;
     border: none;
@@ -203,4 +219,22 @@ td{
     background-color: var(--button);
     color: var(--background);
     border: none;
+}
+
+#edit {
+    background-color: grey;
+}
+
+#logout{
+    background-color: var(--violet);
+    color: white;
+}
+#profile{
+    width: 100px;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+#welcome{
+    padding-top: 100px;
 }

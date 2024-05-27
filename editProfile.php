@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.html");
+    exit();
+}
+
+$user_id = $_SESSION["user_id"];
+$nickname = $_SESSION["nickname"];
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,14 +27,18 @@
     <body>
         <!--Side Bar-->
         <div class="sidenav">
-            <img src="images/default.jpg" />
-            <a href="#" id="logout"><button>Log Out</button></a>
+            <h3 class="message">Welcome,
+                <?php echo $nickname; ?>!
+            </h3>
+            <img src="images/default.jpg" id="profile" />
+            <a href="#"><button id="edit">Change Picture</button></a>
+            <a href="logout.php"><button id="logout">Log Out</button></a>
         </div>
 
         <!--Main-->
         <div class="main">
             <header>
-                <a class="logo" href="#"><img src="images/logo2.png"><span>Puerza</span></a>
+                <a class="logo" href="dashboard.php"><img src="images/logo2.png"><span>Puerza</span></a>
             </header>
             <h1>Edit Profile</h1>
             

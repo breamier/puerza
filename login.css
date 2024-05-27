@@ -24,7 +24,6 @@
       margin-right: 20px;
       color: #0FF2DB;
       align-self: left;
-      font-style: sans-serif;
     }
   
     #Login {
@@ -34,7 +33,6 @@
       font-style: sans-serif;
       text-decoration: none;
       background-color: #100126;
-      color: white;
       border: none;
       font-size: 2vw;
       box-shadow: 0px 0px 0px 2px 9017BB;
@@ -42,7 +40,6 @@
       border-radius: 10px;
       border: 1px solid #9017BB;
       cursor: pointer;
-      color: white;
       font-family: Arial;
       font-size: 19px;
       padding: 12px 37px;
