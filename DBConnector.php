@@ -215,5 +215,14 @@ $sql_insert_iso_ex = "INSERT INTO `isoExercise`(`iso_id`, `idv_iso`, `idv_iso_na
         $conn->query($sql_insert_iso_ex);
     }
 
+$sql = "CREATE TABLE IF NOT EXISTS contact(
+        name VARCHAR(40),
+        email VARCHAR(40),
+        phone VARCHAR(20),
+        subject VARCHAR(100),
+        message VARCHAR(255)
+)";
+
+$conn->query($sql);
 
 ?>
