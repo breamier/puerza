@@ -33,10 +33,13 @@ if(isset($_GET['date'])) {
     <body>
         <!--Side Bar-->
         <div class="sidenav">
-            <h2>Welcome, <?php echo $nickname; ?>!</h2>
-            <h2>Welcome, <?php echo $user_id; ?>!</h2>
-            <img src="images/default.jpg" />
-            <a href="logout.php" id="logout"><button>Log Out</button></a>
+            <h2 id="welcome">Welcome, <?php echo $nickname; ?>!</h2>
+            <img src="images/default.jpg" id="profile"/>
+            <?php
+                include 'showProfile.php';
+            ?>
+            <a href="editProfile.php" ><button id="edit">Edit Profile</button></a>
+            <a href="logout.php"><button id="logout">Log Out</button></a>
         </div>
 
         <!--Main-->

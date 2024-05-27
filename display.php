@@ -1,6 +1,5 @@
 <?php
 include 'DBConnector.php';
-// session_start();
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.html");
@@ -39,8 +38,7 @@ if ($result->num_rows > 0) {
         $iso_id = $row['iso_id'];
         $idv_iso = $row['idv_iso'];
         $status = $row['status'];
-
-        
+   
 
         $sql_iso = "SELECT idv_iso_name FROM isoexercise WHERE iso_id = $iso_id AND idv_iso = $idv_iso";
         $isolation = $conn->query($sql_iso)->fetch_assoc();
@@ -78,7 +76,9 @@ if ($result->num_rows > 0) {
                     </tr>';
             }
             echo '</table>';
-            echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
+            if($iso_id != 5){
+                echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
+            }
             echo '<form method="post" action="delete_workout.php">';
             echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="type" value="' . $type . '">';
             echo '<button type="submit" name="delete_workout" style="background-color: red;">Delete Workout</button>';
@@ -113,7 +113,9 @@ if ($result->num_rows > 0) {
                     </tr>';
             }
             echo '</table>';
-            echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
+            if($iso_id != 5){
+                echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
+            }
             echo '<form method="post" action="delete_workout.php">';
             echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="type" value="' . $type . '">';
             echo '<button type="submit" name="delete_workout" style="background-color: red;">Delete Workout</button>';
@@ -141,7 +143,9 @@ if ($result->num_rows > 0) {
                 </tr>';
             }
             echo '</table>';
-            echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
+            if($iso_id != 5){
+                echo '<div class="isolation">For Isolation of '.$isolation_part['iso_part'].': '.$isolation['idv_iso_name'].'</div>';
+            }
             echo '<form method="post" action="delete_workout.php">';
             echo '<input type="hidden" name="workout_id" value="' . $workout_id . '"><input type="hidden" name="type" value="' . $type . '">';
             echo '<button type="submit" name="delete_workout" style="background-color: red;">Delete Workout</button>';
