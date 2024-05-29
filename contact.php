@@ -1,19 +1,24 @@
 <?php
 include 'DBConnector.php';
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
-extract($_POST);
+$name = mysqli_real_escape_string($conn, $_POST['name']);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$phone = mysqli_real_escape_string($conn, $_POST['phone']);
+$subject = mysqli_real_escape_string($conn, $_POST['subject']);
+$message = mysqli_real_escape_string($conn, $_POST['message']);
 
 $sql = "INSERT INTO `contact`(`name`, `email`, `phone`, `subject`, `message`)
     VALUES ('$name', '$email', '$phone', '$subject', '$message')";
 
-// if($conn->query($sql)===TRUE){
-//     // echo "Message sent";
-// }
+if ($conn->query($sql) === TRUE) {
+    echo "Message sent";
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $conn->close();
+
 ?>

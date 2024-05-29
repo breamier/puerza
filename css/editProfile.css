@@ -8,8 +8,9 @@
 :root {
     --background: #3F0259;
     --text-color: white;
-    --button: #00FEED;
-    --navbar: #100126;
+    --button: #641B83;
+    --navbar: #1E0135;
+    --title: #05F2DB;
 }
 
 a {
@@ -27,20 +28,29 @@ form{
     padding: 50px;
 }
 
-h1{
-    color: var(--button);
-    margin-top: 50px;
-    margin-left: 8%;
+/* hello name */
+.edit-profile-title {
+    font-size: 30px;
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-bottom: -20px;
+    color: var(--title);
 }
 
+/* header */
 header{
     background-color: var(--navbar);
     height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     display: flex;
-    padding: 25px 5%;
+    flex-direction: row; 
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 250px;
+    z-index: 1000;
+    margin-bottom: 80px;
 }
 
 .logo {
@@ -49,35 +59,35 @@ header{
 }
 
 .logo img {
-    width: 80px;
+    width: 40px;
+    margin-left: 30px;
+    padding-top: 8px;
 }
 
 .logo span {
     font-size: 1.5rem;
     margin-left: 10px;
-    font-weight:bolder;
-    color: var(--button);
+    padding-top: 12px;
+    font-weight: bolder;
+    color: var(--title);
 }
 
-.main{
-    margin-left: 300px;
-}
-
+/* sidnav */
 .sidenav{
     height: 100%;
-    width: 300px;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: var(--navbar);
+    background-color: #290140;
     overflow-x: hidden;
     padding-top: 20px;
     text-align: center;
 }
 
 .sidenav p, a{
-    padding-top: 25px;
+    padding-top: 10px;
     padding-bottom: 25px;
     text-decoration: none;
     font-size: 25px;
@@ -85,7 +95,21 @@ header{
     display: block;
 }
 
-button{
+.profile-picture {
+    margin-top: 30px;
+    width: 150px;
+    border-radius: 80px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--button);
+}
+
+.message {
+    margin-top: 80px;
+    font-size: 25px;
+}
+
+button, .to-dashboard{
     background-color: var(--button);
     color: var(--text-color);
     text-decoration: none;
@@ -105,12 +129,148 @@ table, th, td{
     margin-right: auto;
 }
 
-.submit-button{
+.main{
+    margin-top: -10px;
+    margin-left: 300px;
+    width: 1000px;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+}
+
+#save{
     padding: 10px 15px 10px 15px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
     background-color: var(--button);
-    color: var(--background);
+    color: var(--text-color);
     border: none;
 }
+
+/* edit profile */
+.edit-title {
+    font-size: 18px;
+    color: var(--title);
+    margin-bottom: 5px;
+}
+
+.text-placeholder {
+    height: 20px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    padding-left: 3px;
+    display: grid;
+
+}
+
+.birthday {
+    padding-right: 40px;
+    height: 30px;
+    font-size: 15px;
+    margin-top: -20px;
+}
+
+.title-row1 {
+    display: flex;
+    flex: 1;
+    width: 700px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.title-row2 {
+    display: flex;
+    flex: 1;
+    width: 367px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.input-row1 {
+    margin-right: 20px;
+    display: flex;
+    flex: 1;
+    width: 830px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input-row2 {
+    margin-left: 0px;
+    display: flex;
+    flex: 1;
+    width: 527px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: none;
+  }
+  
+  li {
+    display: inline-block;
+  }
+  
+  input[type="radio"][id^="cb"] {
+    display: none;
+  }
+  
+  label {
+    border: 3px solid var(--button);
+    background-color: rgb(35, 0, 53);
+    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  label:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+  }
+  
+  label img {
+    height: 100px;
+    width: 100px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+  }
+  
+  :checked + label {
+    border-color: var(--title);
+  }
+  
+  :checked + label:before {
+    content: "✓";
+    background-color: var(--button);
+    transform: scale(1);
+  }
+  
+  :checked + label img {
+    transform: scale(0.9);
+    box-shadow: 0 0 5px var(--title);
+    z-index: -1;
+  }
+
