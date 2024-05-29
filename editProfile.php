@@ -27,10 +27,17 @@ if ($result->num_rows > 0) {
     $weight = $row['weight'];
     $height = $row['height'];
     $picture = $row['picture'];
+
+    $cb1 = $picture == 'images/tiger.png' ? 'checked' : '';
+    $cb2 = $picture == 'images/wolf.png' ? 'checked' : '';
+    $cb3 = $picture == 'images/spartan.png' ? 'checked' : '';
+    $cb4 = $picture == 'images/lion.png' ? 'checked' : '';
+    $cb5 = $picture == 'images/bear.png' ? 'checked' : '';
 } else {
     // Handle case where user is not found
     echo "User not found.";
     exit();
+
 }
 
 $stmt->close();
@@ -75,9 +82,9 @@ $conn->close();
             </div>
 
             <div class="input-row1">
-                <input type="text" name="first_name" value="<?php echo htmlspecialchars($first_name); ?>" class="text-placeholder">
-                <input type="text" name="last_name" value="<?php echo htmlspecialchars($last_name); ?>" class="text-placeholder">
-                <input type="text" name="nickname" value="<?php echo htmlspecialchars($nickname); ?>" class="text-placeholder">
+                <input type="text" name="first_name" value="<?php echo htmlspecialchars($first_name); ?>" class="text-placeholder" required>
+                <input type="text" name="last_name" value="<?php echo htmlspecialchars($last_name); ?>" class="text-placeholder" required>
+                <input type="text" name="nickname" value="<?php echo htmlspecialchars($nickname); ?>" class="text-placeholder" required>
             </div>
 
             <div class="title-row2">
@@ -86,8 +93,8 @@ $conn->close();
             </div>
 
             <div class="input-row2">
-                <input type="number" name="weight" value="<?php echo htmlspecialchars($weight); ?>" class="text-placeholder">
-                <input type="number" name="height" value="<?php echo htmlspecialchars($height); ?>" class="text-placeholder">
+                <input type="number" name="weight" value="<?php echo htmlspecialchars($weight); ?>" class="text-placeholder" placeholder="lbs">
+                <input type="number" name="height" value="<?php echo htmlspecialchars($height); ?>" class="text-placeholder" placeholder="cm">
             </div>
 
             <div class="title-row3">
@@ -95,7 +102,7 @@ $conn->close();
             </div>
 
             <div class="input-row3">
-                <input type="date" name="birthdate" value="<?php echo htmlspecialchars($birthdate); ?>" class="text-placeholder">
+                <input type="date" name="birthdate" value="<?php echo htmlspecialchars($birthdate); ?>" class="text-placeholder" required>
             </div>
 
             <div class="title-row4">
@@ -104,23 +111,23 @@ $conn->close();
 
             <ul>
                 <li>
-                    <input type="radio" name="picture" id="cb1" value="images/tiger.png" />
+                    <input type="radio" name="picture" id="cb1" value="images/tiger.png" <?php echo $cb1; ?>/>
                     <label for="cb1"><img src="images/tiger.png" /></label>
                 </li>
                 <li>
-                    <input type="radio" name="picture" id="cb2" value="images/wolf.png" />
+                    <input type="radio" name="picture" id="cb2" value="images/wolf.png" <?php echo $cb2; ?>/>
                     <label for="cb2"><img src="images/wolf.png" /></label>
                 </li>
                 <li>
-                    <input type="radio" name="picture" id="cb3" value="images/spartan.png" />
+                    <input type="radio" name="picture" id="cb3" value="images/spartan.png" <?php echo $cb3; ?>/>
                     <label for="cb3"><img src="images/spartan.png" /></label>
                 </li>
                 <li>
-                    <input type="radio" name="picture" id="cb4" value="images/lion.png" />
+                    <input type="radio" name="picture" id="cb4" value="images/lion.png" <?php echo $cb4; ?>/>
                     <label for="cb4"><img src="images/lion.png" /></label>
                 </li>
                 <li>
-                    <input type="radio" name="picture" id="cb5" value="images/bear.png" />
+                    <input type="radio" name="picture" id="cb5" value="images/bear.png" <?php echo $cb5; ?>/>
                     <label for="cb5"><img src="images/bear.png" /></label>
                 </li>
             </ul>

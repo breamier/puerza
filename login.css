@@ -42,7 +42,8 @@
       border-radius: 10px;
       border: 1px solid #9017BB;
       cursor: pointer;
-      font-family: Arial;
+      font-family: "Inter", sans-serif;
+      font-weight: bolder;
       font-size: 19px;
       padding: 12px 27px;
       text-decoration: none;
@@ -240,7 +241,8 @@
     border-radius: 10px;
     border: 1px solid #9017BB;
     cursor: pointer;
-    font-family: Arial;
+    font-family: "Inter", sans-serif;
+    font-weight: bolder;
     font-size: 19px;
     padding: 12px 37px;
     text-decoration: none;
@@ -437,7 +439,8 @@
     border-radius: 10px;
     border: 1px solid #9017BB;
     cursor: pointer;
-    font-family: Arial;
+    font-family: "Inter", sans-serif;
+    font-weight: bolder;
     font-size: 19px;
     padding: 12px 37px;
     text-decoration: none;
@@ -637,7 +640,8 @@
     border-radius: 10px;
     border: 1px solid #9017BB;
     cursor: pointer;
-    font-family: Arial;
+    font-family: "Inter", sans-serif;
+    font-weight: bolder;
     font-size: 19px;
     padding: 12px 37px;
     text-decoration: none;
@@ -834,7 +838,8 @@
     border-radius: 10px;
     border: 1px solid #9017BB;
     cursor: pointer;
-    font-family: Arial;
+    font-family: "Inter", sans-serif;
+    font-weight: bolder;
     font-size: 19px;
     padding: 12px 37px;
     text-decoration: none;

@@ -56,9 +56,9 @@ $user_id = $_SESSION["user_id"];
                                 <h3 class="label">Plyometrics</h3>
                                 <br>
                                 <div style="column-count: 2;">
-                                    <input type="radio" name="type" value="3" required>Beginner Set<br>
-                                    <input type="radio" name="type" value="4" required>Intermediate Set<br>
-                                    <input type="radio" name="type" value="5" required>Extreme Set<br>
+                                    <input type="radio" name="type" value="3" required>Beginner<br>
+                                    <input type="radio" name="type" value="4" required>Intermediate<br>
+                                    <input type="radio" name="type" value="5" required>Extreme<br>
                                 </div>
                             </div>
                         </td>

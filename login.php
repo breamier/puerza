@@ -29,13 +29,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: dashboard.php");
             exit();
         } else {
-            $error = "Invalid email or password";
+            $_SESSION["error"] = "Invalid email or password";
         }
     } else {
-        $error = "Invalid email or password";
+        $_SESSION["error"] = "Invalid email or password";
     }
 
     $stmt->close();
+    if(isset($_SESSION["error"])) {
+        echo "<script>alert('" . $_SESSION["error"] . "');</script>";
+        unset($_SESSION["error"]);
+    }
 }
 
 $conn->close();
