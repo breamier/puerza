@@ -1,10 +1,10 @@
 /* Media Queries */
-@media only screen and (max-width: 2500px)  {
+@media only screen and (min-width: 1400px) and (max-width: 2500px)   {
 
     body{
       height: 100%;
       width:100%;
-      
+      transition: all 0.2s ease;
     }
   
     nav {
@@ -18,12 +18,14 @@
       position: relative;
       overflow-y: hidden;
       width:98.4%;
+      transition: all 0.2s ease;
     }
   
     #Name {
       margin-right: 20px;
       color: #0FF2DB;
       align-self: left;
+      transition: all 0.2s ease;
     }
   
     #Login {
@@ -42,8 +44,9 @@
       cursor: pointer;
       font-family: Arial;
       font-size: 19px;
-      padding: 12px 37px;
+      padding: 12px 27px;
       text-decoration: none;
+      transition: all 0.2s ease;
       
     }
   
@@ -57,11 +60,13 @@
       color: white;
       border: none;
       font-size: 2vw;
+      transition: all 0.2s ease;
     }
     
   
     #Name {
       margin-left: 150px;
+      transition: all 0.2s ease;
     }
   
     #seconddiv {
@@ -77,17 +82,19 @@
       width: 97%;
       z-index: 99;
       overflow-x: hidden !important;
+      transition: all 0.2s ease;
     }
   
     #Loginform {
       background-color: transparent;
-      position: absolute; ;
+      position: absolute ;
       top: 180px;
       left: 900px;
       max-width: 200x;
     width: 80%;
     min-width: 50px;
     float:left;
+    transition: all 0.2s ease;
     }
   
     #email, #password, #fname, #lname, #nickname {
@@ -99,11 +106,14 @@
       border-color: #AE41B1;
       font-size: 18pt;
       width: 20%;
+      color:white;
+      transition: all 0.2s ease;
     }
   
     ::placeholder {
       color: #9D9D9D;
       font-style: sans-serif;
+      transition: all 0.2s ease;
     }
   
     #welcome {
@@ -113,6 +123,7 @@
       top: 50 px;
       left: 950px;
       font-weight: 1100;
+      transition: all 0.2s ease;
     }
   
     #login1 {
@@ -130,7 +141,8 @@
       position: absolute;
       top: 160px;
       left: 125px;
-      font-size: 24px;      
+      font-size: 24px;     
+      transition: all 0.2s ease; 
     }
   
     #CreateAcc {
@@ -139,6 +151,7 @@
       position: absolute;
       top: 450px;
       left: 1070px;
+      transition: all 0.2s ease;
     }
   
     #or {
@@ -149,15 +162,18 @@
       position: absolute;
       top: 400px;
       left: 1100px;
+      transition: all 0.2s ease;
     }
   
     #login1:hover {
       transform: scale(1.2);
       cursor: pointer;
+      transition: all 0.2s ease;
     }
   
     #CreateAcc:hover {
       transform: scale(1.2);
+      transition: all 0.2s ease;
     }
   
     #button1 {
@@ -176,7 +192,800 @@
       margin-left: 153px;
       margin-top: 425px;
       font-size: 24px;
+      transition: all 0.2s ease;
     }
   }
   
+ /* Media Queries */
+ @media only screen and (min-width: 1200px) and (max-width: 1400px)  {
+  body{
+    height: 100%;
+    width:100%;
+    transition: all 0.2s ease;
+    
+  }
+
+  nav {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #100126;
+    color: #100126;
+    padding: 10px;
+    position: relative;
+    overflow-y: hidden;
+    width:98.4%;
+    transition: all 0.2s ease;
+  }
+
+  #Name {
+    margin-right: 20px;
+    color: #0FF2DB;
+    align-self: left;
+    transition: all 0.2s ease;
+  }
+
+  #Login {
+    position: relative;
+    left: -70%;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    border: none;
+    font-size: 2vw;
+    box-shadow: 0px 0px 0px 2px 9017BB;
+    background-color: #9017BB;
+    border-radius: 10px;
+    border: 1px solid #9017BB;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 12px 37px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+  }
+
+  #Signup {
+    position: relative;
+    left: 180px;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    color: white;
+    border: none;
+    font-size: 2vw;
+    transition: all 0.2s ease;
+  }
   
+
+  #Name {
+    margin-left: 150px;
+    transition: all 0.2s ease;
+  }
+
+  #seconddiv {
+    background-image: url(images/loginbg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: relative;
+    color: blue;
+    padding: 20px;
+    border: 1px solid blue;
+    position: absolute;
+    height: 100%;
+    width: 97%;
+    z-index: 99;
+    overflow-x: hidden !important;
+    transition: all 0.2s ease;
+  }
+
+  #Loginform {
+    background-color: transparent;
+    position: absolute ;
+    top: 180px;
+    left: 700px;
+    max-width: 200x;
+  width: 80%;
+  min-width: 50px;
+  float:left;
+  transition: all 0.2s ease;
+  }
+
+  #email, #password, #fname, #lname, #nickname {
+    background-color: #350062;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px;
+    border-color: #AE41B1;
+    font-size: 18pt;
+    width: 20%;
+    color:white;
+    transition: all 0.2s ease;
+  }
+
+  ::placeholder {
+    color: #9D9D9D;
+    font-style: sans-serif;
+    transition: all 0.2s ease;
+  }
+
+  #welcome {
+    color: #FFFFFF;
+    font-size: 45px;
+    position: relative;
+    top: 50 px;
+    left: 750px;
+    font-weight: 1100;
+    transition: all 0.2s ease;
+  }
+
+  #login1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    top: 160px;
+    left: 125px;
+    font-size: 24px;   
+    transition: all 0.2s ease;   
+  }
+
+  #CreateAcc {
+    font-style: italic;
+    font-size: 40px;
+    position: absolute;
+    top: 450px;
+    left: 870px;
+    transition: all 0.2s ease;
+  }
+
+  #or {
+    color: #9D9D9D;
+    text-transform: uppercase;
+    
+    font-weight: 700;
+    position: absolute;
+    top: 400px;
+    left: 900px;
+    transition: all 0.2s ease;
+  }
+
+  #login1:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  #CreateAcc:hover {
+    transform: scale(1.2);
+    transition: all 0.2s ease;
+  }
+
+  #button1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 425px;
+    font-size: 24px;
+    transition: all 0.2s ease;
+  }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1200px){
+
+  body{
+    height: 100%;
+    width:100%;
+    transition: all 0.2s ease;
+    
+  }
+
+  nav {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #100126;
+    color: #100126;
+    padding: 10px;
+    position: relative;
+    overflow-y: hidden;
+    width:98.4%;
+    transition: all 0.2s ease;
+  }
+
+  #Name {
+    margin-right: 20px;
+    color: #0FF2DB;
+    align-self: left;
+    transition: all 0.2s ease;
+  }
+
+  #Login {
+    position: relative;
+    left: -70%;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    border: none;
+    font-size: 2vw;
+    box-shadow: 0px 0px 0px 2px 9017BB;
+    background-color: #9017BB;
+    border-radius: 10px;
+    border: 1px solid #9017BB;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 12px 37px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+  }
+
+  #Signup {
+    position: relative;
+    left: 100px;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    color: white;
+    border: none;
+    font-size: 2vw;
+    transition: all 0.2s ease;
+  }
+  
+
+  #Name {
+    margin-left: 150px;
+    transition: all 0.2s ease;
+  }
+
+  #seconddiv {
+    background-image: url(images/loginbg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: relative;
+    color: blue;
+    padding: 20px;
+    border: 1px solid blue;
+    position: absolute;
+    height: 100%;
+    width: 97%;
+    z-index: 99;
+    overflow-x: hidden !important;
+    transition: all 0.2s ease;
+  }
+
+  #Loginform {
+    background-color: transparent;
+    position: absolute ;
+    top: 180px;
+    left: 600px;
+    max-width: 200x;
+  width: 70%;
+  min-width: 50px;
+  float:left;
+  transition: all 0.2s ease;
+  }
+
+  #email, #password, #fname, #lname, #nickname {
+    background-color: #350062;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px;
+    border-color: #AE41B1;
+    font-size: 18pt;
+    width: 20%;
+    color:white;
+    transition: all 0.2s ease;
+  }
+
+  ::placeholder {
+    color: #9D9D9D;
+    font-style: sans-serif;
+    transition: all 0.2s ease;
+  }
+
+  #welcome {
+    color: #FFFFFF;
+    font-size: 45px;
+    position: relative;
+    top: 50 px;
+    left: 600px;
+    font-weight: 1000;
+    transition: all 0.2s ease;
+  }
+
+  #login1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    top: 160px;
+    left: 60px;
+    font-size: 24px;   
+    transition: all 0.2s ease;   
+  }
+
+  #CreateAcc {
+    font-style: italic;
+    font-size: 40px;
+    position: absolute;
+    top: 450px;
+    left: 700px;
+    transition: all 0.2s ease;
+  }
+
+  #or {
+    color: #9D9D9D;
+    text-transform: uppercase;
+    
+    font-weight: 700;
+    position: absolute;
+    top: 400px;
+    left: 735px;
+    transition: all 0.2s ease;
+  }
+
+  #login1:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  #CreateAcc:hover {
+    transform: scale(1.2);
+    transition: all 0.2s ease;
+  }
+
+  #button1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 425px;
+    font-size: 24px;
+    transition: all 0.2s ease;
+  }
+
+
+
+
+}
+@media only screen and (min-width: 800px) and (max-width: 1000px){
+  body{
+    height: 100%;
+    width:100%;
+    transition: all 0.2s ease;
+    
+  }
+
+  nav {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #100126;
+    color: #100126;
+    padding: 10px;
+    position: relative;
+    overflow-y: hidden;
+    width:98.4%;
+    transition: all 0.2s ease;
+  }
+
+  #Name {
+    margin-right: 20px;
+    color: #0FF2DB;
+    align-self: left;
+    transition: all 0.2s ease;
+  }
+
+  #Login {
+    position: relative;
+    left: -70%;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    border: none;
+    font-size: 2vw;
+    box-shadow: 0px 0px 0px 2px 9017BB;
+    background-color: #9017BB;
+    border-radius: 10px;
+    border: 1px solid #9017BB;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 12px 37px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+  }
+
+  #Signup {
+    position: relative;
+    left: 180px;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    color: white;
+    border: none;
+    font-size: 2vw;
+    transition: all 0.2s ease;
+  }
+  
+
+  #Name {
+    margin-left: 150px;
+    transition: all 0.2s ease;
+  }
+
+  #seconddiv {
+    background-image: url(images/loginbg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: relative;
+    color: blue;
+    padding: 20px;
+    border: 1px solid blue;
+    position: absolute;
+    height: 100%;
+    width: 97%;
+    z-index: 99;
+    overflow-x: hidden !important;
+    transition: all 0.2s ease;
+  }
+
+  #Loginform {
+    background-color: transparent;
+    position: absolute ;
+    top: 180px;
+    left: 700px;
+    max-width: 200x;
+  width: 80%;
+  min-width: 50px;
+  float:left;
+  transition: all 0.2s ease;
+  }
+
+  #email, #password, #fname, #lname, #nickname {
+    background-color: #350062;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px;
+    border-color: #AE41B1;
+    font-size: 18pt;
+    width: 20%;
+    color:white;
+    transition: all 0.2s ease;
+  }
+
+  ::placeholder {
+    color: #9D9D9D;
+    font-style: sans-serif;
+    transition: all 0.2s ease;
+  }
+
+  #welcome {
+    color: #FFFFFF;
+    font-size: 45px;
+    position: relative;
+    top: 50 px;
+    left: 750px;
+    font-weight: 1100;
+    transition: all 0.2s ease;
+  }
+
+  #login1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    top: 160px;
+    left: 125px;
+    font-size: 24px;   
+    transition: all 0.2s ease;   
+  }
+
+  #CreateAcc {
+    font-style: italic;
+    font-size: 40px;
+    position: absolute;
+    top: 450px;
+    left: 870px;
+    transition: all 0.2s ease;
+  }
+
+  #or {
+    color: #9D9D9D;
+    text-transform: uppercase;
+    
+    font-weight: 700;
+    position: absolute;
+    top: 400px;
+    left: 900px;
+    transition: all 0.2s ease;
+  }
+
+  #login1:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  #CreateAcc:hover {
+    transform: scale(1.2);
+    transition: all 0.2s ease;
+  }
+
+  #button1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 425px;
+    font-size: 24px;
+    transition: all 0.2s ease;
+  }
+}
+@media only screen and (min-width: 144px) and (max-width: 800px){
+
+  body{
+    height: 100%;
+    width:100%;
+    transition: all 0.2s ease;
+    
+  }
+
+  nav {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #100126;
+    color: #100126;
+    padding: 10px;  
+    position: relative;
+    overflow-y: hidden;
+    width:98.4%;
+    transition: all 0.2s ease;
+  }
+
+  #Name {
+    margin-right: 20px;
+    color: #0FF2DB;
+    align-self: left;
+    transition: all 0.2s ease;
+  }
+
+  #Login {
+    position: relative;
+    left: -70%;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    border: none;
+    font-size: 2vw;
+    box-shadow: 0px 0px 0px 2px 9017BB;
+    background-color: #9017BB;
+    border-radius: 10px;
+    border: 1px solid #9017BB;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 12px 37px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+  }
+
+  #Signup {
+    position: relative;
+    left: 20px;
+    color: white;
+    font-style: sans-serif;
+    text-decoration: none;
+    background-color: #100126;
+    color: white;
+    border: none;
+    font-size: 2vw;
+    transition: all 0.2s ease;
+  }
+  
+
+  #Name {
+    margin-left: 150px;
+    transition: all 0.2s ease;
+  }
+
+  #seconddiv {
+    background-image: url(images/loginbg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: relative;
+    color: blue;
+    padding: 20px;
+    border: 1px solid blue;
+    position: absolute;
+    height: 100%;
+    width: 97%;
+    z-index: 99;
+    overflow-x: hidden !important;
+    transition: all 0.2s ease;
+  }
+
+  #Loginform {
+    background-color: transparent;
+    position: absolute ;
+    top: 180px;
+    left: 320px;
+    max-width: 200x;
+  width: 70%;
+  min-width: 50px;
+  float:left;
+  transition: all 0.2s ease;
+  }
+
+  #email, #password, #fname, #lname, #nickname {
+    background-color: #350062;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px;
+    border-color: #AE41B1;
+    font-size: 18pt;
+    width: 20%;
+    color:white;
+    transition: all 0.2s ease;
+  }
+
+  ::placeholder {
+    color: #9D9D9D;
+    font-style: sans-serif;
+    transition: all 0.2s ease;
+  }
+
+  #welcome {
+    color: #FFFFFF;
+    font-size: 30px;
+    position: relative;
+    top: 250 px;
+    left: 325px;
+    font-weight: 1000;
+    transition: all 0.2s ease;
+  }
+
+  #login1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    top: 160px;
+    left: 60px;
+    font-size: 24px;   
+    transition: all 0.2s ease;   
+  }
+
+  #CreateAcc {
+    font-style: italic;
+    font-size: 30px;
+    position: absolute;
+    top: 450px;
+    left: 415px;
+    transition: all 0.2s ease;
+  }
+
+  #or {
+    color: #9D9D9D;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 300;
+    position: absolute;
+    top: 400px;
+    left: 435px;
+    transition: all 0.2s ease;
+  }
+
+  #login1:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  #CreateAcc:hover {
+    transform: scale(1.2);
+    transition: all 0.2s ease;
+  }
+
+  #button1 {
+    color: white;
+    font-style: sans-serif;
+    border-color: #9017BB;
+    border-radius: 20px;
+    border-style: solid;
+    background: #9017BB;
+    border-width: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 425px;
+    font-size: 24px;
+    transition: all 0.2s ease;
+  }
+
+
+}
