@@ -26,7 +26,7 @@ echo "<h3 id='name'>" . $row['first_name'] . " ". $row['last_name'] ."</h3>
     </tr>
     <tr>
         <td style='text-align: left;'>Height: </td>
-        <td>". $row['height'] ." lbs</td>
+        <td>". $row['height'] ." cm</td>
     </tr>
 </table>";
 ?>

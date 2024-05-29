@@ -1,6 +1,6 @@
 <?php
+include 'DBConnector.php';
 session_start();
-
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.html");
@@ -15,6 +15,11 @@ if(isset($_GET['date'])) {
 } else {
     $current_date = date("Y-m-d");
 }
+
+$sql = "SELECT picture FROM users WHERE user_id = $user_id";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$picture = $row['picture'];
 
 ?>
 
@@ -34,7 +39,8 @@ if(isset($_GET['date'])) {
         <!--Side Bar-->
         <div class="sidenav">
             <h2 id="welcome">Welcome, <?php echo $nickname; ?>!</h2>
-            <img src="images/default.jpg" id="profile"/>
+            <!-- <img src="images/default.jpg" id="profile"/> -->
+            <img id="profile" src="<?php echo $picture; ?>" alt="Profile Picture"/>
             <?php
                 include 'showProfile.php';
             ?>

@@ -11,10 +11,8 @@ $sql = "INSERT INTO `contact`(`name`, `email`, `phone`, `subject`, `message`)
     VALUES ('$name', '$email', '$phone', '$subject', '$message')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Message sent";
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
+    header("Location: aboutPage.html");
+    exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

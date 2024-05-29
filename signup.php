@@ -28,7 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($checkEmailQuery->num_rows > 0) {
         // Email already exists
-        echo "Email already in database.";
+        echo "<script>alert('The Email is already registered');</script>";
+    
         echo '<meta http-equiv="refresh" content="3;url=register.html">';
         $checkEmailQuery->close();
         $conn->close();
@@ -44,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $weight = NULL;
     $height = NULL;
-    $picture = 'default.jpg';
+    $picture = 'images/default.jpg';
 
     if ($stmt->execute()) {
         $_SESSION['email'] = $email;
