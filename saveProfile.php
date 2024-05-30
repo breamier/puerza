@@ -11,7 +11,6 @@ if (!isset($_SESSION["user_id"])) {
 $user_id = $_SESSION["user_id"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get POST data
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $nickname = $_POST['nickname'];
@@ -26,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssdssi", $first_name, $last_name, $nickname, $birthdate, $weight, $height, $picture, $user_id);
 
     if ($stmt->execute()) {
+        $_SESSION["nickname"] = $nickname;
         header("Location: editProfile.php?status=success");
     } else {
 

@@ -18,18 +18,17 @@ echo $user_id;
 
 if($type == 1 || $type == 2){
     $sql = "DELETE FROM strengthworkout WHERE workout_id = $workout_id";
-    if($conn->query($sql) === TRUE){
-        echo "Deleted from strength";
-    }
+    $conn->query($sql);
 }
 
 $sql_user_workout = "DELETE FROM user_workout WHERE user_id = $user_id AND workout_id = $workout_id";
-if($conn->query($sql_user_workout) === TRUE){
-    echo "Deleted from user-workout";
-}
+    $conn->query($sql_user_workout);
 
 $sql_workout = "DELETE FROM workout WHERE workout_id = $workout_id";
-if($conn->query($sql_workout) === TRUE){
-    echo "Deleted from workout";
-}
+    $conn->query($sql_workout);
+
+header("Location: dashboard.php");
+
+$conn->close();
+exit();
 ?>
