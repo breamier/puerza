@@ -229,6 +229,7 @@ td{
     background-color: var(--violet);
     color: white;
 }
+
 #profile{
     width: 150px;
     border-radius: 50%;
@@ -237,11 +238,6 @@ td{
     border-style: solid;
     border-color: var(--button);
 }
-
-/* margin-top: 30px;
-width: 150px;
-border-radius: 80px; */
-
 
 #welcome{
     padding-top: 100px;

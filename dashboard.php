@@ -39,7 +39,6 @@ $picture = $row['picture'];
         <!--Side Bar-->
         <div class="sidenav">
             <h2 id="welcome">Welcome, <?php echo $nickname; ?>!</h2>
-            <!-- <img src="images/default.jpg" id="profile"/> -->
             <img id="profile" src="<?php echo $picture; ?>" alt="Profile Picture"/>
             <?php
                 include 'showProfile.php';

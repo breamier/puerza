@@ -39,6 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_SESSION["error"])) {
         echo "<script>alert('" . $_SESSION["error"] . "');</script>";
         unset($_SESSION["error"]);
+
+        echo "<a href='login.html'><button>Back to Log In</button></a>";
     }
 }
 
